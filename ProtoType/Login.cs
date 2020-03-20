@@ -22,6 +22,8 @@ namespace ProtoType
     {
         protected override void OnClick()
         {
+            string stringURI = ArcGIS.Desktop.Core.Project.Current.URI;
+            ArcGIS.Desktop.Framework.Dialogs.MessageBox.Show($"Project path:  {stringURI}", "Project Info");
         }
     }
 }
