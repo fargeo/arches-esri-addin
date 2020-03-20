@@ -15,7 +15,7 @@
       <!-- uncomment to have the control hosted on a separate tab-->
       <tabs>
         <tab id="ProtoType_Tab1" caption="Arches Project">
-          <group refID="ProtoType_Group1"/>
+          <group refID="ProtoType_Group1" />
         </tab>
       </tabs>
       <groups>
@@ -24,6 +24,9 @@
         <group id="ProtoType_Group1" caption="Login" appearsOnAddInTab="false">
           <!-- host controls within groups -->
           <button refID="ProtoType_Login" size="large" />
+          <button refID="ProtoType_MainDockpane_ShowButton" size="large" />
+          <button refID="ProtoType_ResourceModelDockpane_ShowButton" size="large" />
+          <button refID="ProtoType_Dockpane1_ShowButton" size="large" />
         </group>
       </groups>
       <controls>
@@ -31,7 +34,27 @@
         <button id="ProtoType_Login" caption="Login" className="Login" loadOnClick="true" smallImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonBlue16.png" largeImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonBlue32.png">
           <tooltip heading="Tooltip Heading">Tooltip text<disabledText /></tooltip>
         </button>
+        <button id="ProtoType_MainDockpane_ShowButton" caption="Arches Connection" className="MainDockpane_ShowButton" loadOnClick="true" smallImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonPurple16.png" largeImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonPurple32.png">
+          <tooltip heading="Arches Instance">Connect to Arches Instance<disabledText /></tooltip>
+        </button>
+        <button id="ProtoType_ResourceModelDockpane_ShowButton" caption="Import Resource" className="ResourceModelDockpane_ShowButton" loadOnClick="true" smallImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonPurple16.png" largeImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonPurple32.png">
+          <tooltip heading="Import Resources">Import resources from the selected resource model<disabledText /></tooltip>
+        </button>
+        <button id="ProtoType_Dockpane1_ShowButton" caption="Save Resource" className="Dockpane1_ShowButton" loadOnClick="true" smallImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonPurple16.png" largeImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonPurple32.png">
+          <tooltip heading="Save Resources">Save resources to the selected reousrce model<disabledText /></tooltip>
+        </button>
       </controls>
+      <dockPanes>
+        <dockPane id="ProtoType_MainDockpane" caption="MainDockpane" className="MainDockpaneViewModel" dock="group" dockWith="esri_core_contentsDockPane">
+          <content className="MainDockpaneView" />
+        </dockPane>
+        <dockPane id="ProtoType_ResourceModelDockpane" caption="ResourceModelDockpane" className="ResourceModelDockpaneViewModel" dock="group" dockWith="esri_core_contentsDockPane">
+          <content className="ResourceModelDockpaneView" />
+        </dockPane>
+        <dockPane id="ProtoType_Dockpane1" caption="Dockpane 1" className="Dockpane1ViewModel" dock="group" dockWith="esri_core_contentsDockPane">
+          <content className="Dockpane1View" />
+        </dockPane>
+      </dockPanes>
     </insertModule>
   </modules>
 </ArcGIS>
