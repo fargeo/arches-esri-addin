@@ -30,14 +30,13 @@
                 </TextBlock.ToolTip>
             </TextBlock>
         </DockPanel>
-        <TextBox Name="InstanceURL" HorizontalAlignment="Left" Height="23" Margin="28,35,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" TextChanged="TextBox_TextChanged"/>
-        <TextBox Name="Nickname" HorizontalAlignment="Left" Height="23" Margin="28,85,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
-        <TextBox Name="Username" HorizontalAlignment="Left" Height="23" Margin="28,135,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
-        <PasswordBox Name="Password" HorizontalAlignment="Left" Height="23" Margin="28,185,0,0" Grid.Row="1" VerticalAlignment="Top" Width="250"/>
-        <TextBlock HorizontalAlignment="Left" Margin="28,15,0,0" Grid.Row="1" Text="Instance URL" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="28,65,0,0" Grid.Row="1" Text="Nickname" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="28,115,0,0" Grid.Row="1" Text="Username" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="28,165,0,0" Grid.Row="1" Text="Password" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Connect" HorizontalAlignment="Left" Margin="178,228,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Click="Button_Click"/>
+        <TextBox Name="InstanceURL" HorizontalAlignment="Left" Height="23" Margin="30,35,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" TextChanged="TextBox_TextChanged"/>
+        <TextBox Name="Username" HorizontalAlignment="Left" Height="23" Margin="30,85,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+        <PasswordBox Name="Password" HorizontalAlignment="Left" Height="23" Margin="30,135,0,0" Grid.Row="1" VerticalAlignment="Top" Width="250"/>
+        <TextBlock HorizontalAlignment="Left" Margin="30,15,0,0" Grid.Row="1" Text="Instance URL" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="30,65,0,0" Grid.Row="1" Text="Username" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="30,115,0,0" Grid.Row="1" Text="Password" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Connect" HorizontalAlignment="Left" Margin="40,200,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Click="Button_Click"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="170,200,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Click="Button_Click_1"/>
     </Grid>
 </UserControl>
