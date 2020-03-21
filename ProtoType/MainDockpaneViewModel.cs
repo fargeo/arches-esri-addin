@@ -16,7 +16,6 @@ using ArcGIS.Desktop.Framework.Dialogs;
 using ArcGIS.Desktop.Framework.Threading.Tasks;
 using ArcGIS.Desktop.Mapping;
 
-
 namespace ProtoType
 {
     internal class MainDockpaneViewModel : DockPane
