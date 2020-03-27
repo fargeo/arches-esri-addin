@@ -30,12 +30,13 @@
                 </TextBlock.ToolTip>
             </TextBlock>
         </DockPanel>
-        <TextBox Name="InstanceURL" HorizontalAlignment="Left" Height="23" Margin="30,35,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" TextChanged="TextBox_TextChanged"/>
-        <TextBox Name="Username" HorizontalAlignment="Left" Height="23" Margin="30,85,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
-        <PasswordBox Name="Password" HorizontalAlignment="Left" Height="23" Margin="30,135,0,0" Grid.Row="1" VerticalAlignment="Top" Width="250"/>
-        <TextBlock HorizontalAlignment="Left" Margin="30,15,0,0" Grid.Row="1" Text="Instance URL" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="30,65,0,0" Grid.Row="1" Text="Username" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="30,115,0,0" Grid.Row="1" Text="Password" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="InstanceURL" HorizontalAlignment="Left" Height="23" Margin="30,55,0,0" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" TextChanged="TextBox_TextChanged"/>
+        <TextBox Name="Username" HorizontalAlignment="Left" Height="23" Margin="30,105,0,0" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+        <PasswordBox Name="Password" HorizontalAlignment="Left" Height="23" Margin="30,155,0,0" Grid.Row="1" Password="" VerticalAlignment="Top" Width="250"/>
+        <TextBlock HorizontalAlignment="Left" Margin="30,15,0,0" Grid.Row="1" Text="Instance URL" VerticalAlignment="Top" Width="250"/>
+        <TextBlock HorizontalAlignment="Left" Margin="30,35,0,0" Grid.Row="1" Text="ex) http://your.ogranization.org/" VerticalAlignment="Top" Width="250"/>
+        <TextBlock HorizontalAlignment="Left" Margin="30,85,0,0" Grid.Row="1" Text="Username" VerticalAlignment="Top" Width="250"/>
+        <TextBlock HorizontalAlignment="Left" Margin="30,135,0,0" Grid.Row="1" Text="Password" VerticalAlignment="Top" Width="250"/>
         <Button Content="Connect" HorizontalAlignment="Left" Margin="40,200,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Click="Button_Click"/>
         <Button Content="Cancel" HorizontalAlignment="Left" Margin="170,200,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Click="Button_Click_1"/>
     </Grid>
