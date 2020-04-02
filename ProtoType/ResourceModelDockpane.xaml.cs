@@ -33,7 +33,14 @@ namespace ProtoType
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ArcGIS.Desktop.Framework.Dialogs.MessageBox.Show("You Clicked the Import Button in Resource Dockpane");
+            ArcGIS.Desktop.Framework.Dialogs.MessageBox.Show($"" +
+                $"clientid: {StaticVariables.myClientid} " +
+                $"\naccess token: {StaticVariables.myToken["access_token"]} " +
+                $"\nrefresh token: {StaticVariables.myToken["refresh_token"]} " /*+
+                $"\ngraph: {resource["graphid"]}" +
+                $"\nresource: {resource["resourceid"]}" +
+                $"\nresource name: {resource["displayname"]}"*/);
+
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)

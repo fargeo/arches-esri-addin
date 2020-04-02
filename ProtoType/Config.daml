@@ -26,7 +26,8 @@
           <button refID="ProtoType_Login" size="large" />
           <button refID="ProtoType_MainDockpane_ShowButton" size="large" />
           <button refID="ProtoType_ResourceModelDockpane_ShowButton" size="large" />
-          <button refID="ProtoType_Dockpane1_ShowButton" size="large" />
+          <button refID="ProtoType_SaveResource_ShowButton" size="large" />
+          <button refID="ProtoType_AttributeTable_ShowButton" size="large" />
         </group>
       </groups>
       <controls>
@@ -40,8 +41,11 @@
         <button id="ProtoType_ResourceModelDockpane_ShowButton" caption="Import Resource" className="ResourceModelDockpane_ShowButton" loadOnClick="true" smallImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonPurple16.png" largeImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonPurple32.png">
           <tooltip heading="Import Resources">Import resources from the selected resource model<disabledText /></tooltip>
         </button>
-        <button id="ProtoType_Dockpane1_ShowButton" caption="Save Resource" className="Dockpane1_ShowButton" loadOnClick="true" smallImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonPurple16.png" largeImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonPurple32.png">
+        <button id="ProtoType_SaveResource_ShowButton" caption="Save Resource" className="SaveResource_ShowButton" loadOnClick="true" smallImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonPurple16.png" largeImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonPurple32.png">
           <tooltip heading="Save Resources">Save resources to the selected reousrce model<disabledText /></tooltip>
+        </button>
+        <button id="ProtoType_AttributeTable_ShowButton" caption="Show AttributeTable" className="AttributeTable_ShowButton" loadOnClick="true" smallImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonPurple16.png" largeImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/GenericButtonPurple32.png">
+          <tooltip heading="Show Attributes">Show Attributes<disabledText /></tooltip>
         </button>
       </controls>
       <dockPanes>
@@ -51,8 +55,11 @@
         <dockPane id="ProtoType_ResourceModelDockpane" caption="ResourceModelDockpane" className="ResourceModelDockpaneViewModel" dock="group" dockWith="esri_core_contentsDockPane">
           <content className="ResourceModelDockpaneView" />
         </dockPane>
-        <dockPane id="ProtoType_Dockpane1" caption="Dockpane 1" className="Dockpane1ViewModel" dock="group" dockWith="esri_core_contentsDockPane">
-          <content className="Dockpane1View" />
+        <dockPane id="ProtoType_SaveResource" caption="SaveResource" className="SaveResourceViewModel" dock="group" dockWith="esri_core_contentsDockPane">
+          <content className="SaveResourceView" />
+        </dockPane>
+        <dockPane id="ProtoType_AttributeTable" caption="AttributeTable" className="AttributeTableViewModel" dock="group" dockWith="esri_core_contentsDockPane">
+          <content className="AttributeTableView" />
         </dockPane>
       </dockPanes>
     </insertModule>

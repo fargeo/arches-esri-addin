@@ -19,11 +19,11 @@ using ArcGIS.Desktop.Mapping;
 
 namespace ProtoType
 {
-    internal class Dockpane1ViewModel : DockPane
+    internal class SaveResourceViewModel : DockPane
     {
-        private const string _dockPaneID = "ProtoType_Dockpane1";
+        private const string _dockPaneID = "ProtoType_SaveResource";
 
-        protected Dockpane1ViewModel() { }
+        protected SaveResourceViewModel() { }
 
         /// <summary>
         /// Show the DockPane.
@@ -54,11 +54,11 @@ namespace ProtoType
     /// <summary>
     /// Button implementation to show the DockPane.
     /// </summary>
-    internal class Dockpane1_ShowButton : Button
+    internal class SaveResource_ShowButton : Button
     {
         protected override void OnClick()
         {
-            Dockpane1ViewModel.Show();
+            SaveResourceViewModel.Show();
         }
     }
 }

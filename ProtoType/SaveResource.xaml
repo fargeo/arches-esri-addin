@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="ProtoType.Dockpane1View"
+﻿<UserControl x:Class="ProtoType.SaveResourceView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -30,11 +30,11 @@
                 </TextBlock.ToolTip>
           </TextBlock>
         </DockPanel>
-        <Button Content="Save" HorizontalAlignment="Left" Margin="50,182,0,0" Grid.Row="1" VerticalAlignment="Top" Width="90" Click="Button_Click"/>
+        <Button Content="ResourceID?" HorizontalAlignment="Left" Margin="50,182,0,0" Grid.Row="1" VerticalAlignment="Top" Width="90" Click="Button_Click"/>
         <ComboBox HorizontalAlignment="Left" Margin="50,53,0,0" Grid.Row="1" VerticalAlignment="Top" Width="207" SelectionChanged="ComboBox_SelectionChanged"/>
         <Button Content="Cancel" HorizontalAlignment="Left" Margin="167,182,0,0" Grid.Row="1" VerticalAlignment="Top" Width="90" Click="Button_Click_1"/>
         <TextBlock HorizontalAlignment="Left" Margin="50,25,0,0" Grid.Row="1" Text="Layer Name" VerticalAlignment="Top" Width="130"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="51,123,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="206"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="51,123,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="206"/>
         <TextBlock HorizontalAlignment="Left" Margin="51,101,0,0" Grid.Row="1" Text="Resource Model" VerticalAlignment="Top" Width="103"/>
     </Grid>
 </UserControl>

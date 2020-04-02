@@ -23,18 +23,26 @@ namespace ProtoType
     /// <summary>
     /// Interaction logic for MainDockpaneView.xaml
     /// </summary>
+
+    public static class StaticVariables {
+        public static Dictionary<string, string> myToken;
+        public static string myClientid;
+        public static string myInstanceURL;
+        public static string myUsername;
+        public static string myPassword;
+    };
+
     public partial class MainDockpaneView : UserControl
     {
-
-        // this is copied from Cyrus Authetication Code
         // HttpClient is intended to be instantiated once per application, rather than per-use. See Remarks.
         static readonly HttpClient client = new HttpClient();
         private async Task GetInstances()
         {
+            StaticVariables.myInstanceURL = InstanceURL.Text;
             try
             {
-                HttpResponseMessage response = await client.GetAsync(System.IO.Path.Combine(InstanceURL.Text, "search/resources"));
-                ArcGIS.Desktop.Framework.Dialogs.MessageBox.Show(System.IO.Path.Combine(InstanceURL.Text, "search/resources"));
+                HttpResponseMessage response = await client.GetAsync(System.IO.Path.Combine(StaticVariables.myInstanceURL, "search/resources"));
+                ArcGIS.Desktop.Framework.Dialogs.MessageBox.Show(System.IO.Path.Combine(StaticVariables.myInstanceURL, "search/resources"));
 
                 response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();
@@ -63,18 +71,21 @@ namespace ProtoType
 
         private async Task<string> GetClientId()
         {
+            StaticVariables.myInstanceURL = InstanceURL.Text;
+            StaticVariables.myUsername = Username.Text;
+            StaticVariables.myPassword = Password.Password;
             string clientid = "";
+
             try
             {
                 var serializer = new JavaScriptSerializer();
                 var stringContent = new FormUrlEncodedContent(new[]
                     {
-                            new KeyValuePair<string, string>("username", Username.Text),
-                            new KeyValuePair<string, string>("password", Password.Password),
+                            new KeyValuePair<string, string>("username", StaticVariables.myUsername),
+                            new KeyValuePair<string, string>("password", StaticVariables.myPassword),
                         });
-                //var response = await client.PostAsync("http://qa.archesproject.org/auth/get_client_id", stringContent);
-                var response = await client.PostAsync(System.IO.Path.Combine(InstanceURL.Text, "auth/get_client_id"), stringContent);
-                ArcGIS.Desktop.Framework.Dialogs.MessageBox.Show(System.IO.Path.Combine(InstanceURL.Text, "auth/get_client_id"));
+                var response = await client.PostAsync(System.IO.Path.Combine(StaticVariables.myInstanceURL, "auth/get_client_id"), stringContent);
+                ArcGIS.Desktop.Framework.Dialogs.MessageBox.Show(System.IO.Path.Combine(StaticVariables.myInstanceURL, "auth/get_client_id"));
 
                 response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();
@@ -92,21 +103,23 @@ namespace ProtoType
 
         private async Task<Dictionary<string, string>> GetToken(string clientid)
         {
+            StaticVariables.myInstanceURL = InstanceURL.Text;
+            StaticVariables.myUsername = Username.Text;
+            StaticVariables.myPassword = Password.Password;
+
             Dictionary<String, String> result = new Dictionary<String, String>();
+
             try
             {
                 var serializer = new JavaScriptSerializer();
                 var stringContent = new FormUrlEncodedContent(new[]
                     {
-                            /*new KeyValuePair<string, string>("username", "admin"),
-                            new KeyValuePair<string, string>("password", "admin"),*/
-                            new KeyValuePair<string, string>("username", Username.Text),
-                            new KeyValuePair<string, string>("password", Password.Password),
+                            new KeyValuePair<string, string>("username", StaticVariables.myUsername),
+                            new KeyValuePair<string, string>("password", StaticVariables.myPassword),
                             new KeyValuePair<string, string>("client_id", clientid),
                             new KeyValuePair<string, string>("grant_type", "password"),
                         });
-                //var response = await client.PostAsync("http://qa.archesproject.org/o/token/", stringContent);
-                var response = await client.PostAsync(System.IO.Path.Combine(InstanceURL.Text, "o/token/"), stringContent);
+                var response = await client.PostAsync(System.IO.Path.Combine(StaticVariables.myInstanceURL, "o/token/"), stringContent);
 
                 response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();
@@ -125,7 +138,12 @@ namespace ProtoType
 
         private async Task<Dictionary<string, string>> GetResource(string resourceid, string token)
         {
+            StaticVariables.myInstanceURL = InstanceURL.Text;
+            StaticVariables.myUsername = Username.Text;
+            StaticVariables.myPassword = Password.Password;
+
             Dictionary<String, String> result = new Dictionary<String, String>();
+
             try
             {
                 var serializer = new JavaScriptSerializer();
@@ -139,9 +157,9 @@ namespace ProtoType
                     Console.WriteLine("Message :{0} ", e.Message);
                 }
                 //var response = await client.GetAsync($"http://qa.archesproject.org/resources/{resourceid}?format=json");
-                var response = await client.GetAsync(InstanceURL.Text + $"resources/{resourceid}?format=json");
-                ArcGIS.Desktop.Framework.Dialogs.MessageBox.Show($"http://qa.archesproject.org/resources/{resourceid}?format=json");
-                ArcGIS.Desktop.Framework.Dialogs.MessageBox.Show(InstanceURL.Text + $"resources/{resourceid}?format=json");
+                var response = await client.GetAsync(StaticVariables.myInstanceURL + $"resources/{resourceid}?format=json");
+                //ArcGIS.Desktop.Framework.Dialogs.MessageBox.Show($"http://qa.archesproject.org/resources/{resourceid}?format=json");
+                ArcGIS.Desktop.Framework.Dialogs.MessageBox.Show(StaticVariables.myInstanceURL + $"resources/{resourceid}?format=json");
                 response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();
                 dynamic responseJSON = serializer.Deserialize<dynamic>(@responseBody);
@@ -159,28 +177,25 @@ namespace ProtoType
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            /*try
-            {*/
+            try {
                 await GetInstances();
-                string clientid = await GetClientId();
-                Dictionary<string, string> tokendata = await GetToken(clientid);
-                //Dictionary<string, string> resource = await GetResource("28ef157a-5706-11ea-93c2-025323b7202a", tokendata["access_token"]);
+                StaticVariables.myClientid = await GetClientId();
+                StaticVariables.myInstanceURL = InstanceURL.Text;
+                StaticVariables.myUsername = Username.Text;
+                StaticVariables.myPassword = Password.Password;
+                StaticVariables.myToken = await GetToken(StaticVariables.myClientid);
+
                 ArcGIS.Desktop.Framework.Dialogs.MessageBox.Show($"" +
-                    $"clientid: {clientid} " +
-                    $"\naccess token: {tokendata["access_token"]} " +
-                    $"\nrefresh token: {tokendata["refresh_token"]} " /*+
+                    $"clientid: {StaticVariables.myClientid} " +
+                    $"\naccess token: {StaticVariables.myToken["access_token"]} " +
+                    $"\nrefresh token: {StaticVariables.myToken["refresh_token"]} " /*+
                 $"\ngraph: {resource["graphid"]}" +
                 $"\nresource: {resource["resourceid"]}" +
                 $"\nresource name: {resource["displayname"]}"*/);
-                ArcGIS.Desktop.Framework.Dialogs.MessageBox.Show("You are connecting " + InstanceURL.Text + " using credentials " + Username.Text + "/" + Password.Password);
-
-            //}
-            /* catch (Exception e) {
-                ArcGIS.Desktop.Framework.Dialogs.MessageBox.Show(e.Message);
-            }*/
+            } catch {
+                ArcGIS.Desktop.Framework.Dialogs.MessageBox.Show("Check the Instance URL and/or the Crdentials");
+            }
         }
-
-        /// end of Cyrus Authentication Code
 
         public MainDockpaneView()
         {
